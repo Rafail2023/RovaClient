@@ -25,7 +25,7 @@ except:
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 def windowtitle(a):
     os.system(f"title {a}")
-windowtitle("MCC Loader 1.0.8")
+windowtitle("RTA LOADER 1.0.8")
 try:
     f = open('TOSVDOIAHWOIHSAKLFHWA.txt')
 except FileNotFoundError:
@@ -33,14 +33,15 @@ except FileNotFoundError:
 else:
     f.close
     subprocess.check_call(["attrib", "+H", "TOSVDOIAHWOIHSAKLFHWA.txt"])
-banner = f"""                                      You have accepted MCC Loader's terms of service.
+banner = f"""                                      You have accepted RTA Loader's terms of service.
 
-                 ███╗░░░███╗░█████╗░░█████╗░██╗░██████╗  ░█████╗░██████╗░░█████╗░██╗░░██╗██╗██╗░░░██╗███████╗
-                 ████╗░████║██╔══██╗██╔══██╗╚█║██╔════╝  ██╔══██╗██╔══██╗██╔══██╗██║░░██║██║██║░░░██║██╔════╝
-                 ██╔████╔██║██║░░╚═╝██║░░╚═╝░╚╝╚█████╗░  ███████║██████╔╝██║░░╚═╝███████║██║╚██╗░██╔╝█████╗░░
-                 ██║╚██╔╝██║██║░░██╗██║░░██╗░░░░╚═══██╗  ██╔══██║██╔══██╗██║░░██╗██╔══██║██║░╚████╔╝░██╔══╝░░
-                 ██║░╚═╝░██║╚█████╔╝╚█████╔╝░░░██████╔╝  ██║░░██║██║░░██║╚█████╔╝██║░░██║██║░░╚██╔╝░░███████╗
-                 ╚═╝░░░░░╚═╝░╚════╝░░╚════╝░░░░╚═════╝░  ╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░╚══════╝
+                 
+                                                ██████╗ ████████╗ █████╗ 
+                                                ██╔══██╗╚══██╔══╝██╔══██╗
+                                                ██████╔╝   ██║   ███████║
+                                                ██╔══██╗   ██║   ██╔══██║
+                                                ██║  ██║   ██║   ██║  ██║
+                                                ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
 
                                                 Press ENTER to continue.                                                                     
 """[1:]
