@@ -27,8 +27,8 @@ banner = f"""
 
 
 
-              The term "We" refers to the entire Developer/Owner of MCC's Archive and MCC's Archive as a whole, 
-                   while "You" refers to you as the user and person using the products of MCC's Archive.
+              The term "We" refers to the entire Developer/Owner of MCC's Archive and RTA's Archive as a whole, 
+                   while "You" refers to you as the user and person using the products of RTA's Archive.
 
      You need to ensure that you voluntarily download/use MCC Loader without any coercion from anyone/a third party.
   "Someone/a third party" here mainly refers to the cases You are asked by a server/stranger to start this application.
