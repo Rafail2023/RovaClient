@@ -45,7 +45,7 @@ def confirm():
 os.system('cls')
 print(TOS)
 time.sleep(1)
-print("\033[1;39m[\033[0;31mMCC Loader\033[1;39m] \033[1;39mThe user haven't accepted MCC Loader's terms of service.")
+print("\033[1;39m[\033[0;31mMCC Loader\033[1;39m] \033[1;39mThe user haven't accepted RTA Loader's terms of service.")
 time.sleep(1)
 print("\033[1;39m[\033[0;31mMCC Loader\033[1;39m] \033[1;39mRedirect user to : \033[0;31mTOSArea.")
 time.sleep(3)
