@@ -53,7 +53,7 @@ while True:
     print(Liq)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
     if chon == '-':
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
     elif chon == 'LB':
         webbrowser.open_new("https://liquidbounce.net/download")
     elif chon == 'LB+':
