@@ -521,9 +521,9 @@ while True:
     if chon == '-':
         os.system('cls')
         print("Now entering : SSTool")
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/SSTool').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/SSTool.txt').text)
     elif chon == '1.1':
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Vape').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Vape.txt').text)
     elif chon == '2.1':
         webbrowser.open_new("https://www.mediafire.com/file/1ogrrrao7vkef7s/Blossom.zip/file")
     elif chon == '3.1':
@@ -551,7 +551,7 @@ while True:
     elif chon == '14.1':
         webbrowser.open_new("https://www.mediafire.com/file/njdn9o73gehyxxb/Lithium_Lite.zip/file")
     elif chon == '15.1':
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Raven').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Raven.txt').text)
     elif chon == '16.1':
         webbrowser.open_new("https://www.mediafire.com/file/9bw1ggpe6lpitpe/Fractal.zip/file")
     elif chon == '17.1':
@@ -714,7 +714,7 @@ while True:
     elif chon == '95.1':
         webbrowser.open_new("https://www.mediafire.com/file/v7qncdv73rcprvs/Ripterms.rar/file")
     elif chon == '1.2':
-        exec(requests.get("https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Vestige").text)
+        exec(requests.get("https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Vestige.txt").text)
     elif chon == '2.2':
         webbrowser.open_new("https://www.mediafire.com/file/pd40jvic352zopy/Huzuni_Dev15_%25281.8%2529.zip/file")
     elif chon == '3.2':
@@ -742,7 +742,7 @@ while True:
     elif chon == '14.2':
         webbrowser.open_new("https://www.mediafire.com/file/komh0qjyq6lh6de/Moon.rar/file")
     elif chon == '15.2':
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Rise').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Rise.txt').text)
     elif chon == '16.2':
         webbrowser.open_new("https://www.mediafire.com/file/itc99scy7znfwfd/Dortware.zip/file")
     elif chon == '17.2':
@@ -784,7 +784,7 @@ while True:
     elif chon == '35.2':
         webbrowser.open_new("https://www.mediafire.com/file/7qqpq8clygn4etr/Clean.zip/file")
     elif chon == '36.2':
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/LiquidBounce').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/LiquidBounce.txt').text)
     elif chon == '37.2':
         webbrowser.open_new("https://qiwi.gg/file/2RcMi0g8Pig81WTyTmwEmxHChiy-317395-Augustus")
     elif chon == '38.2':
