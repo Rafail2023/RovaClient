@@ -493,9 +493,9 @@ mine = """\033[1;39m
 \033[1;31m[\033[1;39m95.5\033[1;31m] \033[1;32mIcarus Client Source \033[1;31m[\033[1;33mB15\033[1;31m]
 \033[1;97m= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
                                                 \033[1;39m┌───────────────────┐
-                                                \033[1;32m║ \033[1;39m     Anarchy      \033[1;32m║
+                                                \033[1;32m║ \033[1;39m     RTA MODS      \033[1;32m║
                                                 \033[1;39m└───────────────────┘
-\033[1;31m[\033[1;39m1.6\033[1;31m] \033[1;32mSeppuku 
+\033[1;31m[\033[1;39m1.6\033[1;31m] \033[1;32mRTAINJECTOR(Craftrise) 
 \033[1;31m[\033[1;39m2.6\033[1;31m] \033[1;32mLambda 
 \033[1;31m[\033[1;39m3.6\033[1;31m] \033[1;32m3arthh4ck 
 \033[1;31m[\033[1;39m4.6\033[1;31m] \033[1;32mPhobos 
@@ -1430,7 +1430,7 @@ while True:
     elif chon == '95.5':
         webbrowser.open_new("https://www.mediafire.com/file/um0ku2ykzq5xwqx/Icarus+B15.zip/file")
     elif chon == '1.6':
-        webbrowser.open_new("https://mimhax.netlify.app/Files/seppuku.jar")
+        webbrowser.open_new("www.rta.dev/injector")
     elif chon == '2.6':
         webbrowser.open_new("https://mimhax.netlify.app/Files/lambda-3.3.0.jar")
     elif chon == '3.6':
