@@ -33,7 +33,7 @@ except FileNotFoundError:
 else:
     f.close
     subprocess.check_call(["attrib", "+H", "TOSVDOIAHWOIHSAKLFHWA.txt"])
-banner = f"""                                      You have accepted RTA Loader's terms of service.
+banner = f"""                            You have accepted RTA Loader's terms of service.
 
                  
                                                 ██████╗ ████████╗ █████╗ 
