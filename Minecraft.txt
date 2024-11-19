@@ -340,7 +340,7 @@ mine = """\033[1;39m
                                                 \033[1;39m┌───────────────────┐          
                                                 \033[1;32m║  \033[1;39m    Plugins      \033[1;32m║          
                                                 \033[1;39m└───────────────────┘          
-                                    \033[1;97mThis section has not been audited by MCC's Archive.    
+                                    \033[1;97mThis section has not been audited by RTA's Archive.    
                                 \033[1;97mThat means that most of the plugins here may not working. 
                            \033[1;97mPlease report to us if you found a plugin that is buggy/not working.
 \033[1;31m[\033[1;39m1.4\033[1;31m] \033[1;32mAAC \033[1;31m[\033[1;33mv5.2.0\033[1;31m] 
