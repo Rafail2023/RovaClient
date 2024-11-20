@@ -88,4 +88,5 @@ while True:
     elif chon == '20.1':
         webbrowser.open_new("https://www.mediafire.com/file/t9mrmlmgxb4nsgv/Cucklord_Reborn.zip/file")
     else:
-        continue
+        # Girintili bir kod bloğu olması gerekiyor
+        print("\033[1;31mInvalid option. Please choose a valid client!\033[1;39m")
