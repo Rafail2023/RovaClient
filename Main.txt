@@ -82,6 +82,8 @@ nig = """
 
 
                                                    \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
+					           \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
+						   \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mOther(Soon)
 
 
 
@@ -96,6 +98,14 @@ while True:
         os.system('cls')
         print("                                              \033[1;39mLoading Minecraft Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
+    if chon == '--':
+        os.system('cls')
+        print("                                              \033[1;39mLoading Minecraft Page..")
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Roblox.txt').text)
+    if chon == '---':
+        os.system('cls')
+        print("                                              \033[1;39mLoading Minecraft Page..")
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Other.txt').text)
     if chon == 'c':
         os.system('cls')
         print("                                                  \033[1;39mRendering Credits..")
