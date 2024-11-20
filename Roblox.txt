@@ -40,7 +40,6 @@ mine = """\033[1;39m
 \033[1;31m[\033[1;39m18.1\033[1;31m] \033[1;32mESP Client \033[1;31m[\033[1;33mLunar Injectable\033[1;31m] 
 \033[1;31m[\033[1;39m19.1\033[1;31m] \033[1;32mCucklord 
 \033[1;31m[\033[1;39m20.1\033[1;31m] \033[1;32mCucklord Reborn 
-\033[1;31m[\033[1;39m-\033[1;31m] \033[1;32mScreen Share Tools 
 """
 print(mine)
 while True:
@@ -88,5 +87,4 @@ while True:
     elif chon == '20.1':
         webbrowser.open_new("https://www.mediafire.com/file/t9mrmlmgxb4nsgv/Cucklord_Reborn.zip/file")
     else:
-        # Girintili bir kod bloğu olması gerekiyor
-        print("\033[1;31mInvalid option. Please choose a valid client!\033[1;39m")
+       continue
