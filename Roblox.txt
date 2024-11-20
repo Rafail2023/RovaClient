@@ -47,11 +47,7 @@ while True:
     os.system('cls')
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
-    if chon == '-':
-        os.system('cls')
-        print("Now entering : SSTool")
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/SSTool.txt').text)
-    elif chon == '1.1':
+    if chon == '1.1':
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Vape.txt').text)
     elif chon == '2.1':
         webbrowser.open_new("https://www.mediafire.com/file/1ogrrrao7vkef7s/Blossom.zip/file")
@@ -90,5 +86,6 @@ while True:
     elif chon == '19.1':
         webbrowser.open_new("https://www.mediafire.com/file/9wstbkahtv0ux2j/Cucklord.zip/file")
     elif chon == '20.1':
+        webbrowser.open_new("https://www.mediafire.com/file/t9mrmlmgxb4nsgv/Cucklord_Reborn.zip/file")
     else:
         continue
