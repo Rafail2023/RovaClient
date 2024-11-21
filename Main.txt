@@ -83,7 +83,8 @@ nig = """
 
                                                    \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
 					           \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
-						   \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mOther(Soon)
+						   \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
+					           \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
 
 
 
@@ -100,9 +101,13 @@ while True:
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
     if chon == '--':
         os.system('cls')
-        print("                                              \033[1;39mLoading Minecraft Page..")
+        print("                                              \033[1;39mLoading Roblox Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Roblox.txt').text)
-    if chon == '---':
+    if chon == '3':
+        os.system('cls')
+        print("                                              \033[1;39mLoading Craftrise Page..")
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/craftrise.txt').text)
+    if chon == '4':
         os.system('cls')
         print("                                              \033[1;39mLoading Minecraft Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Other.txt').text)
