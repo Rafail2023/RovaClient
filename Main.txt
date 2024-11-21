@@ -24,29 +24,44 @@ except:
     os.system('pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome')
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
-# Versiyon kontrol fonksiyonu
-def check_version(current_version, version_url, update_url):
+# Sürüm kontrol eklemeleri
+CURRENT_VERSION = "1.0.1"  # Programın mevcut sürümü
+VERSION_URL = "https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt"  # Versiyon dosyasının URL'si
+UPDATE_URL = "https://discord.gg/VAdTMzQNsc"  # Güncelleme için yönlendirme URL'si
+
+def fetch_version_from_url(url):
+    """URL'den en son sürüm bilgisini alır."""
     try:
-        response = requests.get(version_url)
-        response.raise_for_status()
-        latest_version = response.text.strip()
-        if current_version != latest_version:
-            print(f"{Fore.RED}[!] Yeni güncelleme mevcut: {latest_version}! Lütfen güncelleyin.{Style.RESET_ALL}")
-            print(f"{Fore.YELLOW}[!] Discord linki açılıyor: {update_url}{Style.RESET_ALL}")
-            webbrowser.open(update_url)
-            print(f"{Fore.RED}[!] Program kapatılıyor...{Style.RESET_ALL}")
-            sleep(3)
-            sys.exit()  # Programı kapatır
-    except Exception as e:
-        print(f"{Fore.RED}[!] Versiyon kontrolü başarısız: {e}{Style.RESET_ALL}")
+        response = requests.get(url, timeout=10)
+        if response.status_code == 200:
+            return response.text.strip()
+        else:
+            print(f"[!] Sürüm kontrolünde hata: {response.status_code}")
+            return None
+    except requests.RequestException as e:
+        print(f"[!] Sürüm kontrolü sırasında hata: {e}")
+        return None
 
-# Mevcut loader sürümü
-CURRENT_VERSION = "1.0.1"
-VERSION_URL = "https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt"
-UPDATE_URL = "https://discord.gg/VAdTMzQNsc"
+def check_version(current_version, version_url, update_url):
+    """Mevcut sürümü kontrol eder ve gerekirse güncelleme önerir."""
+    latest_version = fetch_version_from_url(version_url)
+    if latest_version and current_version != latest_version:
+        print(f"\n[!] Yeni sürüm mevcut! Güncellemeyi indirmeniz gerekiyor.")
+        print(f"[!] Discord linki açılıyor: {update_url}")
+        os.system(f"start {update_url}")
+        print("[!] Program kapatılıyor...")
+        sleep(3)
+        sys.exit()
+    elif latest_version:
+        print(f"[✓] Sürüm güncel!")
+    else:
+        print("[!] Sürüm kontrolü başarısız. Program kapatılıyor.")
+        sys.exit()
 
+# Sürüm kontrolü
 check_version(CURRENT_VERSION, VERSION_URL, UPDATE_URL)
 
+# Orijinal kod devamı
 def windowtitle(a):
     os.system(f"title {a}")
 windowtitle("RTA LOADER 1.0.8 - Rafail7410")
@@ -70,7 +85,6 @@ banner = f"""                            							    You have accepted RTA Loader
                                                 Press ENTER to continue.                                                                     
 """[1:]
 Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, enter=True)
-
 # MÀU
 xnhac = "\033[1;36m"
 do = "\033[1;31m"
@@ -83,7 +97,6 @@ whiteb = "\033[1;39m"
 red = "\033[0;31m"
 redb = "\033[1;31m"
 end = '\033[0m'
-
 # BY THAT VAPE USER
 dev = "\033[1;39m[\033[1;31m×\033[1;39m]\033[1;39m"
 nig = """
