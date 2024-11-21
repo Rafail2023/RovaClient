@@ -38,7 +38,7 @@ def check_version():
         latest_version = response.text.strip()
         
         # Check if the version matches the expected version
-        current_version = "1.0.1"  # The version in your current script
+        current_version = "1.0.2"  # The version in your current script
         
         if latest_version != current_version:
             print(f"New update available! Please visit our Discord server for the latest version.")
