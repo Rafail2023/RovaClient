@@ -7,13 +7,14 @@ import webbrowser, os, re, json, random
 import msvcrt
 import subprocess
 import ctypes
+import requests
+
 try:
     from faker import Faker
-    from requests import session
     from colorama import Fore, Style
-    import requests, random, re
+    import requests
     from random import choice, randint, shuffle
-    import requests, pystyle
+    import pystyle
     from pystyle import Write, Colors
     import subprocess
     import ctypes
@@ -23,16 +24,38 @@ except:
     os.system("pip install colorama && pip install subprocess")
     os.system('pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome')
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+
 def windowtitle(a):
     os.system(f"title {a}")
+
 windowtitle("RTA LOADER 1.0.8 - Rafail7410")
-try:
-    f = open('TOSVDOIAHWOIHSAKLFHWA.txt')
-except FileNotFoundError:
-    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Term%20of%20Services.txt').text)
-else:
-    f.close
-    subprocess.check_call(["attrib", "+H", "TOSVDOIAHWOIHSAKLFHWA.txt"])
+
+# Version checking function
+def check_version():
+    try:
+        # Get the latest version from GitHub
+        response = requests.get("https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt")
+        latest_version = response.text.strip()
+        
+        # Check if the version matches the expected version
+        current_version = "1.0.8"  # The version in your current script
+        
+        if latest_version != current_version:
+            print(f"New update available! Please visit our Discord server for the latest version.")
+            
+            # Open Discord link in browser
+            webbrowser.open("https://discord.gg/rova")
+            
+            input("Press any key to close...")
+            sys.exit()
+    except requests.exceptions.RequestException as e:
+        print(f"Error checking version: {e}")
+        sys.exit()
+
+# Always check the version when the script starts
+check_version()
+
+# Rest of the code continues as before
 banner = f"""                            							    You have accepted RTA Loader's terms of service.
 
                  
@@ -46,6 +69,7 @@ banner = f"""                            							    You have accepted RTA Loader
                                                 Press ENTER to continue.                                                                     
 """[1:]
 Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, enter=True)
+
 # MÀU
 xnhac = "\033[1;36m"
 do = "\033[1;31m"
@@ -58,6 +82,7 @@ whiteb = "\033[1;39m"
 red = "\033[0;31m"
 redb = "\033[1;31m"
 end = '\033[0m'
+
 # BY THAT VAPE USER
 dev = "\033[1;39m[\033[1;31m×\033[1;39m]\033[1;39m"
 nig = """
@@ -86,11 +111,9 @@ nig = """
 						   \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
 					           \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
 
-
-
-
 """
 print(nig)
+
 while True:
     os.system('cls')
     print(nig)
