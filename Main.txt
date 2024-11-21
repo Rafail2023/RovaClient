@@ -25,7 +25,7 @@ except:
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 def windowtitle(a):
     os.system(f"title {a}")
-windowtitle("RTA LOADER 1.0.8")
+windowtitle("RTA LOADER 1.0.8 - Rafail7410")
 try:
     f = open('TOSVDOIAHWOIHSAKLFHWA.txt')
 except FileNotFoundError:
