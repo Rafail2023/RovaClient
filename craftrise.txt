@@ -20,26 +20,8 @@ mine = """\033[1;39m
                                                 \033[1;39m┌────────────────────┐         
                                                 \033[1;32m║    \033[1;39m    Ghost       \033[1;32m║          
                                                 \033[1;39m└────────────────────┘          
-\033[1;31m[\033[1;39m1.1\033[1;31m] \033[1;32mVape Client \033[1;31m[\033[1;33mv0.28->v4.12\033[1;31m]  
-\033[1;31m[\033[1;39m2.1\033[1;31m] \033[1;32mBlossom 
-\033[1;31m[\033[1;39m3.1\033[1;31m] \033[1;32mDream Client \033[1;31m[\033[1;33mv4.6 + v4.8\033[1;31m]
-\033[1;31m[\033[1;39m4.1\033[1;31m] \033[1;32mSlapp \033[1;31m[\033[1;33mv1.28\033[1;31m] 
-\033[1;31m[\033[1;39m5.1\033[1;31m] \033[1;32mWhiteout \033[1;31m[\033[1;33mOld\033[1;31m] 
-\033[1;31m[\033[1;39m6.1\033[1;31m] \033[1;32mEternal Client \033[1;31m[\033[1;33mUnknown Version\033[1;31m] 
-\033[1;31m[\033[1;39m7.1\033[1;31m] \033[1;32mKoid 
-\033[1;31m[\033[1;39m8.1\033[1;31m] \033[1;32mZoomin 
-\033[1;31m[\033[1;39m9.1\033[1;31m] \033[1;32mLuvsy Client 
-\033[1;31m[\033[1;39m10.1\033[1;31m] \033[1;32mDope Client \033[1;31m[\033[1;33mV1\033[1;31m] 
-\033[1;31m[\033[1;39m11.1\033[1;31m] \033[1;32mCheckz 
-\033[1;31m[\033[1;39m12.1\033[1;31m] \033[1;32mNeo Reach 
-\033[1;31m[\033[1;39m13.1\033[1;31m] \033[1;32mObscure Client 
-\033[1;31m[\033[1;39m14.1\033[1;31m] \033[1;32mLithium Lite 
-\033[1;31m[\033[1;39m15.1\033[1;31m] \033[1;32mRaven \033[1;31m[\033[1;33mB1 -> BZ\033[1;31m] 
-\033[1;31m[\033[1;39m16.1\033[1;31m] \033[1;32mFractal Injector \033[1;31m[\033[1;33mLunar Injectable\033[1;31m] 
-\033[1;31m[\033[1;39m17.1\033[1;31m] \033[1;32mWTap V3 \033[1;31m[\033[1;33mNot working\033[1;31m] 
-\033[1;31m[\033[1;39m18.1\033[1;31m] \033[1;32mESP Client \033[1;31m[\033[1;33mLunar Injectable\033[1;31m] 
-\033[1;31m[\033[1;39m19.1\033[1;31m] \033[1;32mCucklord 
-\033[1;31m[\033[1;39m20.1\033[1;31m] \033[1;32mCucklord Reborn 
+\033[1;31m[\033[1;39m1.1\033[1;31m] \033[1;32mRTA INJECTOR \033[1;31m[\033[1;33mvInject Dll Only Craftrise\033[1;31m]  
+\033[1;31m[\033[1;39m2.1\033[1;31m] \033[1;32mSoon 
 """
 print(mine)
 while True:
@@ -47,44 +29,8 @@ while True:
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
     if chon == '1.1':
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Vape.txt').text)
+        exec(requests.get('https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg').text)
     elif chon == '2.1':
-        webbrowser.open_new("https://www.mediafire.com/file/1ogrrrao7vkef7s/Blossom.zip/file")
-    elif chon == '3.1':
-        webbrowser.open_new("https://www.mediafire.com/file/ufktd90e503p7cb/drim.zip/file")
-    elif chon == '4.1':
-        webbrowser.open_new("https://www.mediafire.com/file/asd0skn12pgur93/Slap.zip/file")
-    elif chon == '5.1':
-        webbrowser.open_new("https://www.mediafire.com/file/890qfvw73k97qll/Whiteout_V2.3.zip/file")
-    elif chon == '6.1':
-        webbrowser.open_new("https://www.mediafire.com/file/p43x2u7j2428y4c/eternal_internal.dll/file")
-    elif chon == '7.1':
-        webbrowser.open_new("https://www.mediafire.com/file/znnwsj939jlby2g/Koid.zip/file")
-    elif chon == '8.1':
-        webbrowser.open_new("https://www.mediafire.com/file/tnqrduaaqyu9fn8/Zoomin.zip/file")
-    elif chon == '9.1':
-        webbrowser.open_new("https://www.mediafire.com/file/hrls1h4mp516fy7/Luvsy_Ghost_v1.0.zip/file")
-    elif chon == '10.1':
-        webbrowser.open_new("https://www.mediafire.com/file/22evfi1yvyaormy/Dope.zip/file")
-    elif chon == '11.1':
-        webbrowser.open_new("https://www.mediafire.com/file/gh4y87z2ybgvc9x/1.8-OptiFine_HD_U_H2.zip/file")
-    elif chon == '12.1':
-        webbrowser.open_new("https://www.mediafire.com/file/bsw9lwpbne9ev8w/Neo_Reach.zip/file")
-    elif chon == '13.1':
-        webbrowser.open_new("https://www.mediafire.com/file/idmpo6rmc56b826/Obscure.zip/file")
-    elif chon == '14.1':
-        webbrowser.open_new("https://www.mediafire.com/file/njdn9o73gehyxxb/Lithium_Lite.zip/file")
-    elif chon == '15.1':
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Raven.txt').text)
-    elif chon == '16.1':
-        webbrowser.open_new("https://www.mediafire.com/file/9bw1ggpe6lpitpe/Fractal.zip/file")
-    elif chon == '17.1':
-        webbrowser.open_new("https://www.mediafire.com/file/29naq1ybrud7f5k/WTap_v3.zip/file")
-    elif chon == '18.1':
-        webbrowser.open_new("https://www.mediafire.com/file/o565tmgdhx1chvd/ESP.zip/file")
-    elif chon == '19.1':
-        webbrowser.open_new("https://www.mediafire.com/file/9wstbkahtv0ux2j/Cucklord.zip/file")
-    elif chon == '20.1':
-        webbrowser.open_new("https://www.mediafire.com/file/t9mrmlmgxb4nsgv/Cucklord_Reborn.zip/file")
+        webbrowser.open_new("www.soon.com")
     else:
        continue
