@@ -29,10 +29,10 @@ while True:
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
     if chon == '1.1':
-        exec(requests.get('https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg').text)
+        exec(requests.get('https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg')
     elif chon == '2.1':
         webbrowser.open_new("www.soon.com")
     elif chon == '0':
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt')
     else:
        continue
