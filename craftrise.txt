@@ -21,6 +21,7 @@ mine = """\033[1;39m
                                                 \033[1;32m║\033[1;39m    INJECTORS       \033[1;32m║          
                                                 \033[1;39m└────────────────────┘          
 \033[1;31m[\033[1;39m1.1\033[1;31m] \033[1;32mRTA INJECTOR \033[1;31m[\033[1;33mInject Dll Only Craftrise\033[1;31m]  
+\033[1;31m[\033[1;39m-1\033[1;31m] \033[1;32mGeri Dön \033[1;31m[\033[1;33mGeri Dönmek İçin -1 Yaz\033[1;31m]  
 """
 print(mine)
 while True:
