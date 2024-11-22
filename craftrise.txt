@@ -21,7 +21,6 @@ mine = """\033[1;39m
                                                 \033[1;32m║\033[1;39m    INJECTORS       \033[1;32m║          
                                                 \033[1;39m└────────────────────┘          
 \033[1;31m[\033[1;39m1.1\033[1;31m] \033[1;32mRTA INJECTOR \033[1;31m[\033[1;33mInject Dll Only Craftrise\033[1;31m]  
-\033[1;31m[\033[1;39m2.1\033[1;31m] \033[1;32mSoon 
 """
 print(mine)
 while True:
@@ -31,6 +30,6 @@ while True:
     if chon == '0':
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
     elif chon == '1.1':
-        webbrowser.open_new("https://mega.nz/file/grcWUAKZ#xipEo0wldKN6BuLOUKAkffAQlWghLrz9tqq9_jb2M0I")    
+        webbrowser.open_new("https://mega.nz/file/h20i1JIZ#DgXHSONcns2l5sXz1Fl1XJrB7FeI1cf6Qx2PzQldeUg")    
     else:
        continue
