@@ -37,7 +37,7 @@ TOS = """
                                                \033[0;31m| |/ |/ / ___ |_/ /  / /    
                                                \033[0;31m|__/|__/_/  |_/___/ /_(_)
 """
-TOS2 = """                  Before using RTA Loader, you must agree to our \033[0;31mTOS\033[1;39m.
+TOS2 = """                  Before using Rova Loader, you must agree to our \033[0;31mTOS\033[1;39m.
                                     
               Only press enter if you want to see the \033[0;31mterms of service\033[1;39m."""[1:]
 def confirm():
@@ -45,9 +45,9 @@ def confirm():
 os.system('cls')
 print(TOS)
 time.sleep(1)
-print("\033[1;39m[\033[0;31mRTA Loader\033[1;39m] \033[1;39mThe user haven't accepted RTA Loader's terms of service.")
+print("\033[1;39m[\033[0;31mRova Loader\033[1;39m] \033[1;39mThe user haven't accepted Rova Loader's terms of service.")
 time.sleep(1)
-print("\033[1;39m[\033[0;31mRTA Loader\033[1;39m] \033[1;39mRedirect user to : \033[0;31mTOSArea.")
+print("\033[1;39m[\033[0;31mRova Loader\033[1;39m] \033[1;39mRedirect user to : \033[0;31mTOSArea.")
 time.sleep(3)
 os.system('cls')
 print(TOS2)
