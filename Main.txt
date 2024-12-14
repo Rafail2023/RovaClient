@@ -7,6 +7,7 @@ import webbrowser, os, re, json, random
 import msvcrt
 import subprocess
 import ctypes
+import platform
 import requests
 
 try:
@@ -18,11 +19,14 @@ try:
     from pystyle import Write, Colors
     import subprocess
     import ctypes
+    import win32console
+    import win32gui  # win32gui modülü eklendi
 except:
     os.system("pip install faker && pip install ctypes")
     os.system("pip install requests")
     os.system("pip install colorama && pip install subprocess")
-    os.system('pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome')
+    os.system("pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome")
+    os.system("pip install pywin32")  # win32gui ve win32console için pywin32 yükleniyor
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
 # Şeffaflık ayarları fonksiyonu
@@ -34,13 +38,14 @@ def set_console_opacity(opacity: int):
     if not (0 <= opacity <= 255):
         raise ValueError("Opacity değeri 0 ile 255 arasında olmalıdır.")
     
-    # Windows API çağrısı için sabitler
     HWND = ctypes.windll.kernel32.GetConsoleWindow()
-    GWL_EXSTYLE = -20
-    WS_EX_LAYERED = 0x80000
+    if HWND == 0:
+        return  # Konsol penceresi bulunamazsa çıkış yap
+    
     LWA_ALPHA = 0x02
+    WS_EX_LAYERED = 0x80000
+    GWL_EXSTYLE = -20
 
-    # Şeffaflık ayarını uygula
     ctypes.windll.user32.SetWindowLongW(HWND, GWL_EXSTYLE, ctypes.windll.user32.GetWindowLongW(HWND, GWL_EXSTYLE) | WS_EX_LAYERED)
     ctypes.windll.user32.SetLayeredWindowAttributes(HWND, 0, opacity, LWA_ALPHA)
 
@@ -55,19 +60,13 @@ windowtitle("RovaLoader 1.0.8 - Rafail7410")
 # Version checking function
 def check_version():
     try:
-        # Get the latest version from GitHub
         response = requests.get("https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt")
         latest_version = response.text.strip()
-        
-        # Check if the version matches the expected version
-        current_version = "1.0.2"  # The version in your current script
+        current_version = "1.1.1"
         
         if latest_version != current_version:
             print(f"New update available! Please visit our Discord server for the latest version.")
-            
-            # Open Discord link in browser
-            webbrowser.open("https://discord.gg/rova")
-            
+            webbrowser.open("https://discord.gg/FjYFSQbgMH")
             input("Press enter key to close...")
             sys.exit()
     except requests.exceptions.RequestException as e:
@@ -79,21 +78,16 @@ check_version()
 
 banner = f"""                            							    You have accepted Rova Loader's terms of service.
 
-                 
-
 																																											██████╗  ██████╗ ██╗   ██╗ █████╗ 
 																																											██╔══██╗██╔═══██╗██║   ██║██╔══██╗
 																																											██████╔╝██║   ██║██║   ██║███████║
 																																											██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
 																																											██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
 																																											╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
-                                  
-
                                                 Press ENTER to continue.                                                                     
 """[1:]
 Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, enter=True)
 
-# MÀU
 xnhac = "\033[1;36m"
 do = "\033[1;31m"
 luc = "\033[1;32m"
@@ -106,12 +100,11 @@ red = "\033[0;31m"
 redb = "\033[1;31m"
 end = '\033[0m'
 
-# BY THAT VAPE USER
 dev = "\033[1;39m[\033[1;31m×\033[1;39m]\033[1;39m"
 nig = """
                                                  \033[1;39mRova Loader is FREE.
 
-            \033[1;32m\033[1;39mWhat's new in RTA Loader 1.0.8 ? Checkout new feature & cheats here : https://discord.com/invite/n24UMEyWgJ
+            \033[1;32m\033[1;39mWhat's new in RTA Loader 1.0.8 ? Checkout new feature & cheats here : https://discord.gg/FjYFSQbgMH
 
 
 
@@ -124,13 +117,10 @@ nig = """
 				       \033[1;36m ░▒ ░ ▒░  ░ ▒ ▒░    ░ ░░    ▒   ▒▒ ░
 				       \033[1;36m ░░   ░ ░ ░ ░ ▒       ░░    ░   ▒   
 				       \033[1;36m  ░         ░ ░        ░        ░  ░
-                               
 
-             
                                                          \033[1;31m[\033[1;39mC\033[1;31m]
 \033[1;39m                                                    \033[1;35m For credits.
    \033[0;31m                                            Choose your favourite game.
-
 
                                                    \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
 					           \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
@@ -160,11 +150,7 @@ while True:
         os.system('cls')
         print("                                              \033[1;39mLoading Minecraft Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Other.txt').text)
-    if chon == 'c':
-        os.system('cls')
-        print("                                                  \033[1;39mRendering Credits..")
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Credits.txt').text)
-    if chon == 'C':
+    if chon == 'c' or chon == 'C':
         os.system('cls')
         print("                                                  \033[1;39mRendering Credits..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Credits.txt').text)
