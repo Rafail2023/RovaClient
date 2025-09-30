@@ -1460,6 +1460,6 @@ while True:
     elif chon == '15.6':
         webbrowser.open_new("https://www.mediafire.com/file/7e39w4r6qkloljd/Shoreline.zip/file")
     elif chon == '-1':
-        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
+        exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/main2').text)
     else:
         continue
