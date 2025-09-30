@@ -1,30 +1,29 @@
-# Gerekli kütüphaneler (Ana kodun okunabilirliği için eklendi)
+# Gerekli kütüphaneler
 import os
 import sys
 import time
 import requests
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
-# Banner'ı göster
+# Banner (Orijinal dosyadaki ile birebir aynı)
 banner = f"""                                      You have accepted Rova Loader's terms of service.
- ██████╗  ██████╗ ██╗   ██╗ █████╗ 
+
+                                             ██████╗  ██████╗ ██╗   ██╗ █████╗ 
                                              ██╔══██╗██╔═══██╗██║   ██║██╔══██╗
-                                            
-  ██████╔╝██║   ██║██║   ██║███████║
+                                             ██████╔╝██║   ██║██║   ██║███████║
                                              ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
-                                            
-  ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
+                                             ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
                                              ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
-                                      
-           Press ENTER to continue.
+                                                Press ENTER to continue.                                                                            
+
 """[1:]
 
 Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, enter=True)
 
-# Menü ve diğer görseller
-menu_display = """
+# Ana Menü Ekranı (Orijinal dosyadaki hizalamalar ile birebir aynı)
+nig = """
                                                  \033[1;39mRova Loader is FREE.
- \033[1;32m\033[1;39mWhat's new in Rova Loader? Checkout new feature & cheats here : https://discord.gg/FjYFSQbgMH
+ \033[1;32m\033[1;39mWhat's new in Rova Loader 1.0.8 ? Checkout new feature & cheats here : https://discord.gg/FjYFSQbgMH
 
 
 
@@ -32,19 +31,17 @@ menu_display = """
 			     		  \033[1;36m ▓██ ▒ ██▒▒██▒  ██▒▓██░   █▒▒████▄    
 			     		  \033[1;36m ▓██ ░▄█ ▒▒██░  ██▒ ▓██  █▒░▒██  ▀█▄  
 			      		  \033[1;36m ▒██▀▀█▄  ▒██   ██░  ▒██ █░░░██▄▄▄▄██ 
-			     
- 		                  \033[1;36m ░██▓ ▒██▒░ ████▓▒░   ▒▀█░   ▓█   ▓██▒
+			      		  \033[1;36m ░██▓ ▒██▒░ ████▓▒░   ▒▀█░   ▓█   ▓██▒
 			      		  \033[1;36m ░ ▒▓ ░▒▓░░ ▒░▒░▒░    ░ ▐░   ▒▒   ▓▒█░
 			      		  \033[1;36m ░▒ ░ ▒░  ░ ▒ ▒░    ░ ░░    ▒   ▒▒ ░
 			    		  \033[1;36m ░░   ░ ░ ░ ░ ▒       ░░    ░   ▒   
-			   
-  		                  \033[1;36m  ░         ░ ░        ░        ░  ░
+			     		  \033[1;36m  ░         ░ ░        ░        ░  ░
 
                                                          \033[1;31m[\033[1;39mC\033[1;31m]
-\033[1;39m         
-                                             \033[1;35m For credits.
- \033[0;31m                                            Choose your favourite game.
- \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
+\033[1;39m                                                    \033[1;35m For credits.
+   \033[0;31m                                            Choose your favourite game.
+
+                                   		 \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
 			          		 \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
 				   		 \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
 			          		 \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
@@ -54,21 +51,20 @@ menu_display = """
 # Ana menü döngüsü
 while True:
     os.system('cls')
-    print(menu_display)
+    print(nig)
     choice = Write.Input("           [×] >>  ", Colors.red_to_purple, interval=0.0025)
     
-    # DÜZELTME: Tüm yapı IF/ELIF/ELSE zincirine çevrildi.
     if choice == '1':
         os.system('cls')
+        # Yükleme yazısının hizalaması orijinaldeki gibi ayarlandı
         print("                               \033[1;39mLoading Minecraft Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Minecraft.txt').text)
     
-    # DÜZELTME: '--' yerine '2' olarak değiştirildi ve "Yakında" özelliği eklendi.
     elif choice == '2':
         os.system('cls')
-        Write.Print("                                              \033[1;39mBu özellik yakında eklenecektir...", Colors.red_to_yellow, interval=0.01)
-        time.sleep(2) # 2 saniye bekle
-        continue # Menüye geri dön
+        print("                                               \033[1;39mBu özellik yakında eklenecektir...")
+        time.sleep(2)
+        continue
 
     elif choice == '3':
         os.system('cls')
@@ -77,7 +73,7 @@ while True:
    
     elif choice == '4':
         os.system('cls')
-        print("                                              \033[1;39mLoading Other Page..") # Yazı "Minecraft" yerine "Other" olarak düzeltildi.
+        print("                                              \033[1;39mLoading Other Page..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Other.txt').text)
     
     elif choice.lower() == 'c':
@@ -85,6 +81,5 @@ while True:
         print("                                                  \033[1;39mRendering Credits..")
         exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Credits.txt').text)
     
-    # Geçersiz bir giriş yapılırsa döngüye devam et
     else:
         continue
