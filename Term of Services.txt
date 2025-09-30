@@ -37,7 +37,7 @@ TOS = """
                                                \033[0;31m| |/ |/ / ___ |_/ /  / /    
                                                \033[0;31m|__/|__/_/  |_/___/ /_(_)
 """
-TOS2 = """                  Before using Rova Loader, you must agree to our \033[0;31mTOS\033[1;39m.
+TOS2 = "https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Terms%20of%20Services2.txt"                  Before using Rova Loader, you must agree to our \033[0;31mTOS\033[1;39m.
                                     
               Only press enter if you want to see the \033[0;31mterms of service\033[1;39m."""[1:]
 def confirm():
