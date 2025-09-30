@@ -6,7 +6,7 @@ import requests
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
 # Banner (Orijinal dosyadaki ile birebir aynı)
-banner = f"""                                      You have accepted Rova Loader's terms of service.
+banner = f"""                                      
 
                                              ██████╗  ██████╗ ██╗   ██╗ █████╗ 
                                              ██╔══██╗██╔═══██╗██║   ██║██╔══██╗
@@ -14,7 +14,7 @@ banner = f"""                                      You have accepted Rova Loader
                                              ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
                                              ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
                                              ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
-                                                Press ENTER to continue.                                                                            
+                                                 ENTER'e basarak giris yapin.                                                                            
 
 """[1:]
 
