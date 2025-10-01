@@ -8,13 +8,13 @@ from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 # Banner (Orijinal dosyadaki ile birebir aynı)
 banner = f"""                                      
 
-                                             ██████╗  ██████╗ ██╗   ██╗ █████╗ 
-                                             ██╔══██╗██╔═══██╗██║   ██║██╔══██╗
-                                             ██████╔╝██║   ██║██║   ██║███████║
-                                             ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
-                                             ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
-                                             ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
-                                                 ENTER'e basarak giris yapin.                                                                            
+                                         ██████╗  ██████╗ ██╗   ██╗ █████╗ 
+                                         ██╔══██╗██╔═══██╗██║   ██║██╔══██╗
+                                         ██████╔╝██║   ██║██║   ██║███████║
+                                         ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══██║
+                                         ██║  ██║╚██████╔╝ ╚████╔╝ ██║  ██║
+                                         ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝
+                                            ENTER'e basarak giris yapin.                                                                            
 
 """[1:]
 
@@ -22,8 +22,8 @@ Anime.Fade(Center.Center(banner), Colors.black_to_white, Colorate.Vertical, ente
 
 # Ana Menü Ekranı (Orijinal dosyadaki hizalamalar ile birebir aynı)
 nig = """
-                                                 \033[1;39mRova Loader is FREE.
- \033[1;32m\033[1;39mWhat's new in Rova Loader 1.0.8 ? Checkout new feature & cheats here : https://discord.gg/FjYFSQbgMH
+                                                 \033[1;39mRova Loader.
+      \033[1;32m\033[1;39mRova Loader Ücretsiz! Güncellenmeleri Kaçırmamak İçin Discord Sunucumuza Katıla Bilirsiniz discord.gg/RovaArchive
 
 
 
@@ -38,13 +38,13 @@ nig = """
 			     		  \033[1;36m  ░         ░ ░        ░        ░  ░
 
                                                          \033[1;31m[\033[1;39mC\033[1;31m]
-\033[1;39m                                                    \033[1;35m For credits.
-   \033[0;31m                                            Choose your favourite game.
+\033[1;39m                                                    \033[1;35m basarak yapımcıları göre bilirsiniz.
+   \033[0;31m                                            Favori Oyununuzu Seçin.
 
                                    		 \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
-			          		 \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Soon)
-				   		 \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(New)
-			          		 \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(New)
+			          		 \033[1;31m[\033[1;39m2\033[1;31m] \033[1;32mRoblox(Yakında)
+				   		 \033[1;31m[\033[1;39m3\033[1;31m] \033[1;32mCraftrise(Yeni)
+			          		 \033[1;31m[\033[1;39m4\033[1;31m] \033[1;32mOther(Yeni)
 
 """
 
