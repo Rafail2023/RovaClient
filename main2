@@ -38,7 +38,7 @@ nig = """
 			     		  \033[1;36m  ░         ░ ░        ░        ░  ░
 
                                                          \033[1;31m[\033[1;39mC\033[1;31m]
-\033[1;39m                                                    \033[1;35m basarak yapımcıları göre bilirsiniz.
+\033[1;39m                                     \033[1;35m Ye basarak katkıda bulunanları göre bilirsiniz.
    \033[0;31m                                            Favori Oyununuzu Seçin.
 
                                    		 \033[1;31m[\033[1;39m1\033[1;31m] \033[1;32mMinecraft
