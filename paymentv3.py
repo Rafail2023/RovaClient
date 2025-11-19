@@ -118,7 +118,7 @@ def paymentSettings():
     # Inputs
     paypal_input = payment_group.create_ui_element(
         UI.Input,
-        label="PayPal Email (leave blank to exclude)",
+        label="PayPal Email (leave blank yaram to exclude)",
         placeholder=getSetting("paypal") or "PAYPAL EMAIL HERE",
         show_clear_button=True,
         onInput=checkPaypalInput,
