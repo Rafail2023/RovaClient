@@ -5,7 +5,7 @@ def paymentSettings():
     os.makedirs(f'{getScriptsPath()}/scriptData', exist_ok=True)
     script_config_path = f"{getScriptsPath()}/scriptData/payments.json"
 
-    # Ayarlar: Litecoin -> usdt olarak güncellendi
+    # Ayarlar
     default_settings = {
         "paypal": "",
         "m10": "",
@@ -27,6 +27,7 @@ def paymentSettings():
             "rule2": "- Double-check the address before sending funds.",
             "rule3": "- **All payments are non-refundable** in case of errors or incorrect transactions.",
             "rule4": "- Do **NOT** include any notes or memos with the transaction.",
+            "network_warning": "#- ⚠️ USE **TRC20** NETWORK FOR CRYPTO PAYMENTS.", # Yeni Uyarı
             "accepted_header": "### Accepted Payment Methods ###",
             "empty": "> No payment methods have been set up."
         },
@@ -40,6 +41,7 @@ def paymentSettings():
             "rule2": "- Göndermeden önce adresi/numarayı iki kez kontrol edin.",
             "rule3": "- Hatalı işlemler durumunda **iade yapılmamaktadır**.",
             "rule4": "- İşleme kesinlikle herhangi bir not veya açıklama **EKLEMEYİN**.",
+            "network_warning": "#- ⚠️ KRİPTO ÖDEMELERİNDE **TRC20** AĞINI KULLANIN.", # Yeni Uyarı
             "accepted_header": "### Kabul Edilen Ödeme Yöntemleri ###",
             "empty": "> Henüz ödeme yöntemi ayarlanmadı."
         },
@@ -53,6 +55,7 @@ def paymentSettings():
             "rule2": "- Göndərməzdən əvvəl ünvanı/nömrəni iki dəfə yoxlayın.",
             "rule3": "- Səhv və ya yanlış əməliyyatlar zamanı **ödəniş qaytarılmır**.",
             "rule4": "- Əməliyyata heç bir qeyd və ya açıqlama **ƏLAVƏ ETMƏYİN**.",
+            "network_warning": "#- ⚠️ KRİPTO ÖDƏNİŞLƏRİNDƏ **TRC20** ŞƏBƏKƏSİNDƏN İSTİFADƏ EDİN.", # Yeni Uyarı
             "accepted_header": "### Qəbul Edilən Ödəniş Üsulları ###",
             "empty": "> Heç bir ödəniş üsulu təyin edilməyib."
         }
@@ -100,7 +103,6 @@ def paymentSettings():
     def isValidEthereum(address):
         return bool(re.fullmatch(r"0x[a-fA-F0-9]{40}", address)) or not address
     
-    # M10, Birbank ve USDT için serbest metin (Kısıtlama yok)
     def isValidFreeText(text):
         return True
 
@@ -129,7 +131,7 @@ def paymentSettings():
 
     def checkBirbankInput(new_value):
         return validateInput(new_value, birbank_input, isValidFreeText, "birbank", "")
-
+        
     def checkUsdtInput(new_value):
         return validateInput(new_value, usdt_input, isValidFreeText, "usdt", "")
 
@@ -143,6 +145,7 @@ def paymentSettings():
 
     payment_group = payment_card.create_group(type="columns", gap=3, full_width=True)
 
+    # Inputs
     paypal_input = payment_group.create_ui_element(
         UI.Input, label="PayPal Email", placeholder=getSetting("paypal") or "email@example.com",
         show_clear_button=True, onInput=checkPaypalInput, full_width=True
@@ -158,7 +161,6 @@ def paymentSettings():
         show_clear_button=True, onInput=checkBirbankInput, full_width=True
     )
 
-    # USDT Input (Litecoin yerine eklendi)
     usdt_input = payment_card.create_ui_element(
         UI.Input, label="USDT Address", placeholder=getSetting("usdt") or "USDT (TRC20/ERC20) Adresi",
         show_clear_button=True, onInput=checkUsdtInput, full_width=True
@@ -191,7 +193,7 @@ def paymentSettings():
             "PayPal": settings.get("paypal"),
             "M10": settings.get("m10"),
             "Birbank": settings.get("birbank"),
-            "USDT": settings.get("usdt"),       # Litecoin -> USDT
+            "USDT": settings.get("usdt"),
             "Solana": settings.get("solana"),
             "Ethereum": settings.get("ethereum"),
         }
@@ -209,6 +211,7 @@ def paymentSettings():
                 f"{t['rule2']}\n"
                 f"{t['rule3']}\n"
                 f"{t['rule4']}\n\n"
+                f"**{t['network_warning']}**\n\n" # TRC20 Uyarısı burada
                 f"{t['accepted_header']}\n"
                 + "\n".join(valid_payments)
             )
