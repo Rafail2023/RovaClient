@@ -1,0 +1,222 @@
+def paymentSettings():
+    import os, json, re
+
+    # Dosya Yolu
+    os.makedirs(f'{getScriptsPath()}/scriptData', exist_ok=True)
+    script_config_path = f"{getScriptsPath()}/scriptData/payments.json"
+
+    # Ayarlar
+    default_settings = {
+        "paypal": "",
+        "m10": "",
+        "litecoin": "",
+        "solana": "",
+        "ethereum": "",
+        "birbank": ""
+    }
+
+    # --- ÇEVİRİ SİSTEMİ (EN, TR, AZE) ---
+    translations = {
+        "en": {
+            "header": "**💳 Payment Instructions 💳**",
+            "step1": "1️⃣ Ensure the transaction is completed successfully.",
+            "step2": "2️⃣ Provide a screenshot of the transaction details as proof of payment.",
+            "step3": "3️⃣ Make sure the screenshot is **clear** and **uncropped**.",
+            "rules_header": "**⚠️ Rules for Payment ⚠️**",
+            "rule1": "- Payments must be sent as **Friends & Family (F&F)**.",
+            "rule2": "- Double-check the address before sending funds.",
+            "rule3": "- **All payments are non-refundable** in case of errors or incorrect transactions.",
+            "rule4": "- Do **NOT** include any notes or memos with the transaction.",
+            "accepted_header": "### Accepted Payment Methods ###",
+            "empty": "> No payment methods have been set up."
+        },
+        "tr": {
+            "header": "**💳 Ödeme Talimatları 💳**",
+            "step1": "1️⃣ İşlemin başarıyla tamamlandığından emin olun.",
+            "step2": "2️⃣ Ödeme kanıtı olarak işlem detaylarının ekran görüntüsünü gönderin.",
+            "step3": "3️⃣ Ekran görüntüsünün **net** ve **kırpılmamış** olduğundan emin olun.",
+            "rules_header": "**⚠️ Ödeme Kuralları ⚠️**",
+            "rule1": "- Ödemeler **Arkadaş ve Aile (F&F)** olarak gönderilmelidir.",
+            "rule2": "- Göndermeden önce adresi/numarayı iki kez kontrol edin.",
+            "rule3": "- Hatalı işlemler durumunda **iade yapılmamaktadır**.",
+            "rule4": "- İşleme kesinlikle herhangi bir not veya açıklama **EKLEMEYİN**.",
+            "accepted_header": "### Kabul Edilen Ödeme Yöntemleri ###",
+            "empty": "> Henüz ödeme yöntemi ayarlanmadı."
+        },
+        "aze": {
+            "header": "**💳 Ödəniş Təlimatları 💳**",
+            "step1": "1️⃣ Əməliyyatın uğurla tamamlandığından əmin olun.",
+            "step2": "2️⃣ Ödəniş sübutu olaraq əməliyyat detallarının ekran görüntüsünü göndərin.",
+            "step3": "3️⃣ Ekran görüntüsünün **aydın** və **kəsilməmiş** olduğundan əmin olun.",
+            "rules_header": "**⚠️ Ödəniş Qaydaları ⚠️**",
+            "rule1": "- Ödənişlər **Dostlar və Ailə (F&F)** kimi göndərilməlidir.",
+            "rule2": "- Göndərməzdən əvvəl ünvanı/nömrəni iki dəfə yoxlayın.",
+            "rule3": "- Səhv və ya yanlış əməliyyatlar zamanı **ödəniş qaytarılmır**.",
+            "rule4": "- Əməliyyata heç bir qeyd və ya açıqlama **ƏLAVƏ ETMƏYİN**.",
+            "accepted_header": "### Qəbul Edilən Ödəniş Üsulları ###",
+            "empty": "> Heç bir ödəniş üsulu təyin edilməyib."
+        }
+    }
+
+    # JSON Yükleme ve Onarma
+    def loadSettings():
+        if os.path.exists(script_config_path):
+            try:
+                with open(script_config_path, 'r', encoding="utf-8") as f:
+                    data = json.load(f)
+                for key in default_settings:
+                    if key not in data:
+                        data[key] = ""
+                data = {k: data.get(k, "") for k in default_settings}
+                with open(script_config_path, 'w', encoding="utf-8") as f:
+                    json.dump(data, f, indent=2)
+                return data
+            except Exception:
+                with open(script_config_path, 'w', encoding="utf-8") as f:
+                    json.dump(default_settings, f, indent=2)
+                return default_settings
+        else:
+            with open(script_config_path, 'w', encoding="utf-8") as f:
+                json.dump(default_settings, f, indent=2)
+            return default_settings
+
+    def updateSetting(key, value):
+        settings = loadSettings()
+        settings[key] = value
+        with open(script_config_path, 'w', encoding="utf-8") as f:
+            json.dump(settings, f, indent=2)
+
+    def getSetting(key=None):
+        settings = loadSettings()
+        return settings.get(key) if key else settings
+
+    # --- Validasyon ---
+    def isValidCryptoAddress(address):
+        return bool(re.fullmatch(r"[LM][a-km-zA-HJ-NP-Z1-9]{25,34}", address)) or not address
+
+    def isValidPaypal(email):
+        return bool(re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email)) or not email
+
+    def isValidSolana(address):
+        return bool(re.fullmatch(r"[1-9A-HJ-NP-Za-km-z]{32,44}", address)) or not address
+
+    def isValidEthereum(address):
+        return bool(re.fullmatch(r"0x[a-fA-F0-9]{40}", address)) or not address
+    
+    def isValidFreeText(text):
+        return True
+
+    def validateInput(new_value, current_input, validate_func, key, error_message):
+        if not validate_func(new_value):
+            current_input.invalid = True
+            current_input.error_message = error_message
+            return False
+        current_input.invalid = False
+        current_input.error_message = None
+        updateSetting(key, new_value)
+        return True
+
+    # Listenerlar
+    def checkPaypalInput(new_value):
+        return validateInput(new_value, paypal_input, isValidPaypal, "paypal", "Geçersiz PayPal Formatı.")
+
+    def checkLtcInput(new_value):
+        return validateInput(new_value, ltc_input, isValidCryptoAddress, "litecoin", "Geçersiz Litecoin Adresi.")
+
+    def checkSolanaInput(new_value):
+        return validateInput(new_value, solana_input, isValidSolana, "solana", "Geçersiz Solana Adresi.")
+
+    def checkEthereumInput(new_value):
+        return validateInput(new_value, ethereum_input, isValidEthereum, "ethereum", "Geçersiz Ethereum Adresi.")
+
+    def checkM10Input(new_value):
+        return validateInput(new_value, m10_input, isValidFreeText, "m10", "")
+
+    def checkBirbankInput(new_value):
+        return validateInput(new_value, birbank_input, isValidFreeText, "birbank", "")
+
+    # --- UI ---
+    payment_tab = Tab(name="Payment Settings", title="Payment Settings", icon="calc")
+    p_container = payment_tab.create_container(type="columns")
+    payment_card = p_container.create_card(height="full", width="full", gap=4)
+
+    payment_card.create_ui_element(UI.Text, content="Payment Methods", size="xl", weight="bold")
+    payment_card.create_ui_element(UI.Text, content=f"Usage: {bot.command_prefix}p [en/tr/aze]", size="base", weight="bold", margin="mt-2")
+
+    payment_group = payment_card.create_group(type="columns", gap=3, full_width=True)
+
+    paypal_input = payment_group.create_ui_element(
+        UI.Input, label="PayPal Email", placeholder=getSetting("paypal") or "email@example.com",
+        show_clear_button=True, onInput=checkPaypalInput, full_width=True
+    )
+
+    m10_input = payment_group.create_ui_element(
+        UI.Input, label="M10", placeholder=getSetting("m10") or "M10 Numarası",
+        show_clear_button=True, onInput=checkM10Input, full_width=True
+    )
+
+    birbank_input = payment_group.create_ui_element(
+        UI.Input, label="Birbank", placeholder=getSetting("birbank") or "Kart Numarası",
+        show_clear_button=True, onInput=checkBirbankInput, full_width=True
+    )
+
+    ltc_input = payment_card.create_ui_element(
+        UI.Input, label="Litecoin Address", placeholder=getSetting("litecoin") or "LTC Adresi",
+        show_clear_button=True, onInput=checkLtcInput, full_width=True
+    )
+
+    solana_input = payment_card.create_ui_element(
+        UI.Input, label="Solana Address", placeholder=getSetting("solana") or "SOL Adresi",
+        show_clear_button=True, onInput=checkSolanaInput, full_width=True
+    )
+
+    ethereum_input = payment_card.create_ui_element(
+        UI.Input, label="Ethereum Address", placeholder=getSetting("ethereum") or "ETH Adresi",
+        show_clear_button=True, onInput=checkEthereumInput, full_width=True
+    )
+
+    # --- KOMUT ---
+    @bot.command(name="payment", aliases=["payments", "pay", "p"])
+    async def payment(ctx, lang="en"):
+        await ctx.message.delete()
+        
+        # Dili belirle (varsayılan: en)
+        lang = lang.lower()
+        if lang not in translations:
+            lang = "en"
+        
+        t = translations[lang] # Seçilen dil paketi
+        
+        settings = loadSettings()
+        payments = {
+            "PayPal": settings.get("paypal"),
+            "M10": settings.get("m10"),
+            "Birbank": settings.get("birbank"),
+            "Litecoin": settings.get("litecoin"),
+            "Solana": settings.get("solana"),
+            "Ethereum": settings.get("ethereum"),
+        }
+        
+        valid_payments = [f"> {name}: **{value}**" for name, value in payments.items() if value]
+        
+        if valid_payments:
+            instructions = (
+                f"{t['header']}\n\n"
+                f"{t['step1']}\n"
+                f"{t['step2']}\n"
+                f"{t['step3']}\n\n"
+                f"{t['rules_header']}\n"
+                f"{t['rule1']}\n"
+                f"{t['rule2']}\n"
+                f"{t['rule3']}\n"
+                f"{t['rule4']}\n\n"
+                f"{t['accepted_header']}\n"
+                + "\n".join(valid_payments)
+            )
+            await ctx.send(instructions)
+        else:
+            await ctx.send(t['empty'])
+
+    payment_tab.render()
+
+paymentSettings()
