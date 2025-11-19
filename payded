@@ -5,11 +5,11 @@ def paymentSettings():
     os.makedirs(f'{getScriptsPath()}/scriptData', exist_ok=True)
     script_config_path = f"{getScriptsPath()}/scriptData/payments.json"
 
-    # Ayarlar
+    # Ayarlar: Litecoin -> usdt olarak güncellendi
     default_settings = {
         "paypal": "",
         "m10": "",
-        "litecoin": "",
+        "usdt": "", 
         "solana": "",
         "ethereum": "",
         "birbank": ""
@@ -91,9 +91,6 @@ def paymentSettings():
         return settings.get(key) if key else settings
 
     # --- Validasyon ---
-    def isValidCryptoAddress(address):
-        return bool(re.fullmatch(r"[LM][a-km-zA-HJ-NP-Z1-9]{25,34}", address)) or not address
-
     def isValidPaypal(email):
         return bool(re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email)) or not email
 
@@ -103,6 +100,7 @@ def paymentSettings():
     def isValidEthereum(address):
         return bool(re.fullmatch(r"0x[a-fA-F0-9]{40}", address)) or not address
     
+    # M10, Birbank ve USDT için serbest metin (Kısıtlama yok)
     def isValidFreeText(text):
         return True
 
@@ -120,9 +118,6 @@ def paymentSettings():
     def checkPaypalInput(new_value):
         return validateInput(new_value, paypal_input, isValidPaypal, "paypal", "Geçersiz PayPal Formatı.")
 
-    def checkLtcInput(new_value):
-        return validateInput(new_value, ltc_input, isValidCryptoAddress, "litecoin", "Geçersiz Litecoin Adresi.")
-
     def checkSolanaInput(new_value):
         return validateInput(new_value, solana_input, isValidSolana, "solana", "Geçersiz Solana Adresi.")
 
@@ -134,6 +129,9 @@ def paymentSettings():
 
     def checkBirbankInput(new_value):
         return validateInput(new_value, birbank_input, isValidFreeText, "birbank", "")
+
+    def checkUsdtInput(new_value):
+        return validateInput(new_value, usdt_input, isValidFreeText, "usdt", "")
 
     # --- UI ---
     payment_tab = Tab(name="Payment Settings", title="Payment Settings", icon="calc")
@@ -160,9 +158,10 @@ def paymentSettings():
         show_clear_button=True, onInput=checkBirbankInput, full_width=True
     )
 
-    ltc_input = payment_card.create_ui_element(
-        UI.Input, label="Litecoin Address", placeholder=getSetting("litecoin") or "LTC Adresi",
-        show_clear_button=True, onInput=checkLtcInput, full_width=True
+    # USDT Input (Litecoin yerine eklendi)
+    usdt_input = payment_card.create_ui_element(
+        UI.Input, label="USDT Address", placeholder=getSetting("usdt") or "USDT (TRC20/ERC20) Adresi",
+        show_clear_button=True, onInput=checkUsdtInput, full_width=True
     )
 
     solana_input = payment_card.create_ui_element(
@@ -192,7 +191,7 @@ def paymentSettings():
             "PayPal": settings.get("paypal"),
             "M10": settings.get("m10"),
             "Birbank": settings.get("birbank"),
-            "Litecoin": settings.get("litecoin"),
+            "USDT": settings.get("usdt"),       # Litecoin -> USDT
             "Solana": settings.get("solana"),
             "Ethereum": settings.get("ethereum"),
         }
