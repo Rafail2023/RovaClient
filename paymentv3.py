@@ -13,7 +13,7 @@ def paymentSettings():
         "solana": "",
         "ethereum": "",
         "venmo": "",
-        "m10": "" # M10 Eklendi
+        "m10": ""  # M10 Eklendi
     }
 
     # Robust: payments.json automatisch reparieren!
@@ -67,11 +67,10 @@ def paymentSettings():
 
     def isValidEthereum(address):
         return bool(re.fullmatch(r"0x[a-fA-F0-9]{40}", address)) or not address
-
-    def isValidM10(number):
-        # M10 Genellikle telefon numarasıdır. Basit bir kontrol ekledim.
-        # +994 veya 0 ile başlayan numaralara izin verir.
-        return bool(re.fullmatch(r"(\+994|0)?[0-9\s\-]{9,15}", number)) or not number
+    
+    # M10 için özel format yok, her şeyi kabul eder
+    def isValidM10(val):
+        return True 
 
     # Universelle Input-Prüfung
     def validateInput(new_value, current_input, validate_func, key, error_message):
@@ -88,22 +87,23 @@ def paymentSettings():
         return validateInput(new_value, paypal_input, isValidPaypal, "paypal", "Ungültiges PayPal Format.")
 
     def checkCashtagInput(new_value):
-        return validateInput(new_value, cashtag_input, isValidCashtag, "cashapp", "Ungültiger CashApp Tag.")
+        return validateInput(new_value, cashtag_input, isValidCashtag, "cashapp", "Ungültiger CashApp Tag. Muss mit $ und 1-15 Alphanumerisch sein.")
 
     def checkLtcInput(new_value):
         return validateInput(new_value, ltc_input, isValidCryptoAddress, "litecoin", "Ungültige Litecoin Adresse.")
 
     def checkVenmoInput(new_value):
-        return validateInput(new_value, venmo_input, isValidVenmo, "venmo", "Ungültiges Venmo Handle.")
+        return validateInput(new_value, venmo_input, isValidVenmo, "venmo", "Ungültiges Venmo Handle, muss mit @ beginnen.")
 
     def checkSolanaInput(new_value):
         return validateInput(new_value, solana_input, isValidSolana, "solana", "Ungültige Solana-Adresse.")
 
     def checkEthereumInput(new_value):
         return validateInput(new_value, ethereum_input, isValidEthereum, "ethereum", "Ungültige Ethereum-Adresse.")
-
+    
     def checkM10Input(new_value):
-        return validateInput(new_value, m10_input, isValidM10, "m10", "Geçersiz M10 Numarası.")
+        # M10 için hata mesajı yok çünkü her şey geçerli
+        return validateInput(new_value, m10_input, isValidM10, "m10", "")
 
     # Nighty UI Tab
     payment_tab = Tab(name="Payment Settings", title="Payment Settings", icon="calc")
@@ -118,7 +118,7 @@ def paymentSettings():
     # Inputs
     paypal_input = payment_group.create_ui_element(
         UI.Input,
-        label="PayPal Email",
+        label="PayPal Email (leave blank to exclude)",
         placeholder=getSetting("paypal") or "PAYPAL EMAIL HERE",
         show_clear_button=True,
         onInput=checkPaypalInput,
@@ -127,16 +127,36 @@ def paymentSettings():
 
     cashtag_input = payment_group.create_ui_element(
         UI.Input,
-        label="CashApp Tag",
+        label="CashApp Tag (leave blank to exclude)",
         placeholder=getSetting("cashapp") or "CASHTAG HERE",
         show_clear_button=True,
         onInput=checkCashtagInput,
         full_width=True
     )
 
+    venmo_input = payment_group.create_ui_element(
+        UI.Input,
+        label="Venmo Handle (leave blank to exclude)",
+        placeholder=getSetting("venmo") or "@VENMO HANDLE HERE",
+        show_clear_button=True,
+        onInput=checkVenmoInput,
+        full_width=True
+    )
+
+    # M10 Input - Payment Group'a eklendi, Venmo'nun hemen altına
+    m10_input = payment_group.create_ui_element(
+        UI.Input,
+        label="M10 (leave blank to exclude)",
+        placeholder=getSetting("m10") or "M10 INFO HERE",
+        show_clear_button=True,
+        onInput=checkM10Input, # Özel format yok
+        full_width=True
+    )
+
+    # Crypto Inputs (Standalone in card)
     ltc_input = payment_card.create_ui_element(
         UI.Input,
-        label="Litecoin Address",
+        label="Litecoin Address (leave blank to exclude)",
         placeholder=getSetting("litecoin") or "LTC ADDY HERE",
         show_clear_button=True,
         onInput=checkLtcInput,
@@ -145,7 +165,7 @@ def paymentSettings():
 
     solana_input = payment_card.create_ui_element(
         UI.Input,
-        label="Solana Address",
+        label="Solana Address (leave blank to exclude)",
         placeholder=getSetting("solana") or "SOLANA WALLET HERE",
         show_clear_button=True,
         onInput=checkSolanaInput,
@@ -154,29 +174,10 @@ def paymentSettings():
 
     ethereum_input = payment_card.create_ui_element(
         UI.Input,
-        label="Ethereum Address",
+        label="Ethereum Address (leave blank to exclude)",
         placeholder=getSetting("ethereum") or "ETH WALLET HERE",
         show_clear_button=True,
         onInput=checkEthereumInput,
-        full_width=True
-    )
-
-    venmo_input = payment_group.create_ui_element(
-        UI.Input,
-        label="Venmo Handle",
-        placeholder=getSetting("venmo") or "@VENMO HANDLE HERE",
-        show_clear_button=True,
-        onInput=checkVenmoInput,
-        full_width=True
-    )
-
-    # M10 Input Eklendi
-    m10_input = payment_group.create_ui_element(
-        UI.Input,
-        label="M10 Number",
-        placeholder=getSetting("m10") or "+994XXXXXXXXX",
-        show_clear_button=True,
-        onInput=checkM10Input,
         full_width=True
     )
 
@@ -190,7 +191,7 @@ def paymentSettings():
             "Solana": getSetting("solana"),
             "Ethereum": getSetting("ethereum"),
             "Venmo": getSetting("venmo"),
-            "M10": getSetting("m10"), # Komut Çıktısına Eklendi
+            "M10": getSetting("m10"), # M10 Çıktısı
         }
         valid_payments = [f"> {name}: **{value}**" for name, value in payments.items() if value]
         if valid_payments:
