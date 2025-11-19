@@ -27,7 +27,7 @@ def paymentSettings():
             "rule2": "- Double-check the address before sending funds.",
             "rule3": "- **All payments are non-refundable** in case of errors or incorrect transactions.",
             "rule4": "- Do **NOT** include any notes or memos with the transaction.",
-            "network_warning": "#- ⚠️ USE **TRC20** NETWORK FOR CRYPTO PAYMENTS.", # Yeni Uyarı
+            "network_warning": "-# ⚠️ USE **TRC20** NETWORK FOR CRYPTO PAYMENTS.", # Yeni Uyarı
             "accepted_header": "### Accepted Payment Methods ###",
             "empty": "> No payment methods have been set up."
         },
@@ -41,7 +41,7 @@ def paymentSettings():
             "rule2": "- Göndermeden önce adresi/numarayı iki kez kontrol edin.",
             "rule3": "- Hatalı işlemler durumunda **iade yapılmamaktadır**.",
             "rule4": "- İşleme kesinlikle herhangi bir not veya açıklama **EKLEMEYİN**.",
-            "network_warning": "#- ⚠️ KRİPTO ÖDEMELERİNDE **TRC20** AĞINI KULLANIN.", # Yeni Uyarı
+            "network_warning": "-# ⚠️ KRİPTO ÖDEMELERİNDE **TRC20** AĞINI KULLANIN.", # Yeni Uyarı
             "accepted_header": "### Kabul Edilen Ödeme Yöntemleri ###",
             "empty": "> Henüz ödeme yöntemi ayarlanmadı."
         },
@@ -55,7 +55,7 @@ def paymentSettings():
             "rule2": "- Göndərməzdən əvvəl ünvanı/nömrəni iki dəfə yoxlayın.",
             "rule3": "- Səhv və ya yanlış əməliyyatlar zamanı **ödəniş qaytarılmır**.",
             "rule4": "- Əməliyyata heç bir qeyd və ya açıqlama **ƏLAVƏ ETMƏYİN**.",
-            "network_warning": "#- ⚠️ KRİPTO ÖDƏNİŞLƏRİNDƏ **TRC20** ŞƏBƏKƏSİNDƏN İSTİFADƏ EDİN.", # Yeni Uyarı
+            "network_warning": "-# ⚠️ KRİPTO ÖDƏNİŞLƏRİNDƏ **TRC20** ŞƏBƏKƏSİNDƏN İSTİFADƏ EDİN.", # Yeni Uyarı
             "accepted_header": "### Qəbul Edilən Ödəniş Üsulları ###",
             "empty": "> Heç bir ödəniş üsulu təyin edilməyib."
         }
